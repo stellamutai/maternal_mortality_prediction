@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maternal Mortality Prediction AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="icon></span>
+                <h1>Maternal Health AI</h1>
+            </div>
+            <p>Advanced feature forecasting for maternal mortality risk assessment.</p>
+        </header>
+
+        <main class=" dashboard">
+                    <!-- INPUT SECTION -->
+                    <section class="card input-card">
+                        <h2>Health Indicators</h2>
+                        <form id="predictionForm">
+                            <div class="form-group">
+                                <label for="year">Prediction Year</label>
+                                <input type="number" id="year" name="year" placeholder="e.g. 2025" required min="2000"
+                                    max="2050" value="2025">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="skilled_birth_attendance">Skilled Birth Attendance (%)</label>
+                                <input type="number" id="skilled_birth_attendance" step="0.1"
+                                    name="skilled_birth_attendance" placeholder="0-100" required>
+                                <div class="slider-container">
+                                    <input type="range" min="0" max="100" class="slider" id="sba_slider">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="antenatal_care_coverage">Antenatal Care Coverage (%)</label>
+                                <input type="number" id="antenatal_care_coverage" step="0.1"
+                                    name="antenatal_care_coverage" placeholder="0-100" required>
+                                <div class="slider-container">
+                                    <input type="range" min="0" max="100" class="slider" id="anc_slider">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="health_spending">Health Spending (USD)</label>
+                                <input type="number" id="health_spending" step="0.1" name="health_spending"
+                                    placeholder="Amount in USD" required>
+                            </div>
+
+                            <button type="submit" id="predictBtn">
+                                <span class="btn-text">Run Prediction Model</span>
+                                <div class="loader" id="loader"></div>
+                            </button>
+                        </form>
+                    </section>
+
+                    <!-- RESULTS SECTION -->
+                    <section class="card results-card">
+                        <div class="chart-container">
+                            <canvas id="trendsChart"></canvas>
+                        </div>
+
+                        <div id="resultBox" class="result-box hidden">
+                            <div class="result-header">Prediction Result for <span id="resYear"></span></div>
+                            <div class="result-value">
+                                <span class="label">Projected MMR</span>
+                                <span class="value" id="resMMR">--</span>
+                            </div>
+                            <div class="result-risk">
+                                <span class="label">Risk Assessment</span>
+                                <span class="badge" id="resRisk">Processing...</span>
+                            </div>
+                        </div>
+                    </section>
+                    </main>
+            </div>
+            <script src="/static/js/script.js"></script>
+</body>
+
+</html>

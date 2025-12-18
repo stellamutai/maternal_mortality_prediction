@@ -1,10 +1,12 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 import pandas as pd
 import numpy as np
 from scipy.stats import linregress
 import joblib
 
 app = Flask(__name__)
+CORS(app)
 
 # Load model and data
 model = joblib.load('best_model.pkl')
@@ -14,7 +16,12 @@ historical_df = historical_df.sort_values('year').reset_index(drop=True)
 
 @app.route('/')
 def home():
-    return "Maternal Mortality Prediction API"
+    return render_template('index.html')
+
+@app.route('/api/history')
+def get_history():
+    data = historical_df[['year', 'MMR']].dropna().to_dict(orient='records')
+    return jsonify(data)
 
 @app.route('/health')
 def health():

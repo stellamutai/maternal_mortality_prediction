@@ -131,7 +131,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Credits
 - **Author**: Stella Mutai
-- **Data Source**: [](https://www.who.int/publications/i/item/9789240108462)
+- **Data Source*SDG 3 (Health) South Sudan Maternal Mortality *: [](https://unstats.un.org/sdgs/dataportal/countryprofiles/SSD)
 
 ## Visuals
-*(Add screenshots of your API testing in Postman or a diagram of your model pipeline here)*
+<img width="1688" height="814" alt="Test 1" src="https://github.com/user-attachments/assets/4b137a3f-a48f-4d80-8bbb-404748f1af1d" />
+
+
+
+* *<img width="1816" height="744" alt="Test 2" src="https://github.com/user-attachments/assets/521d30e6-bd89-45d6-b1f6-90d2fed144bf" />
